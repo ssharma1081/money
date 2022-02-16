@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-moneyapp-staging-24516-authRole",
+      "UnauthRoleArn": "arn:aws:iam::428630637249:role/amplify-moneyapp-staging-24516-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::428630637249:role/amplify-moneyapp-staging-24516-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-moneyapp-staging-24516-deployment",
+      "UnauthRoleName": "amplify-moneyapp-staging-24516-unauthRole",
+      "StackName": "amplify-moneyapp-staging-24516",
+      "StackId": "arn:aws:cloudformation:us-east-1:428630637249:stack/amplify-moneyapp-staging-24516/7964faa0-8ed2-11ec-90aa-0e6110ea02d9",
+      "AmplifyAppId": "d21shchpoyih4r"
+    }
+  }
+}

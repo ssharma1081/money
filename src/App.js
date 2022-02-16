@@ -1,7 +1,31 @@
+import React, { useState } from 'react'
+import { DataStore } from '@aws-amplify/datastore';
+import Amplify from '@aws-amplify/core';
+
 import logo from './logo.svg';
 import './App.css';
+import { Accounts } from './models';
+import awsExports from "./aws-exports";
+
+Amplify.configure(awsExports)
 
 function App() {
+
+  const [accounts, setAccounts] = useState([])
+
+  const postAccount = async () => {
+    await DataStore.save(
+      new Accounts({
+        "name": "Lorem ipsum dolor sit amet"
+      })
+    );
+  }
+
+  const getAccounts = async () => {
+    const accounts = await DataStore.query(Accounts);
+    setAccounts(JSON.stringify(accounts))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -9,17 +33,13 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={postAccount} > POST DEFAULT ACCOUNT </button>
+        <button onClick={getAccounts} > GET ALL ACCOUNTS </button>
+        <div>{accounts}</div>
       </header>
     </div>
   );
+
 }
 
 export default App;

@@ -1,0 +1,12 @@
+type Accounts @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+}
+
+type Transactions @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  description: String
+  date: AWSDate
+  amount: Float
+  Accounts: Accounts @hasOne
+}
